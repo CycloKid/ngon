@@ -1,38 +1,41 @@
 <p align="center">
-  <a href="http://www.ngon.cf/" target="blank"><img src="https://i.imgur.com/xM2gDVX.png" width="120" alt="N-GON" /></a>
+  <a href="http://cyclokid.github.io/ngon" target="blank"><img src="https://i.imgur.com/xM2gDVX.png" width="120" alt="N-GON" /></a>
 </p>
 
 ## 2-d physics rogue-lite platformer shooter.
-##### I will be making my own updates on this code.
 
+#### Making my fork just a little bit more unique
+
+Hosted on my own alternative site
+
+[CycloKid's Site](https://cyclokid.github.io/ngon)
+
+OR
+
+[Shkeffy's Site](https://ngon.cf)
+
+No  sound or sfx in this game 😞
 <p align="left">
-<img src="https://img.shields.io/github/stars/Shkeffy/ngon?style=for-the-badge&logo=appveyor">
-<img src="https://img.shields.io/github/forks/Shkeffy/ngon?style=for-the-badge&logo=appveyor">
+<img src="https://img.shields.io/github/stars/CycloKid/ngon?style=for-the-badge&logo=appveyor">
+<img src="https://img.shields.io/github/forks/CycloKid/ngon?style=for-the-badge&logo=appveyor">
 <img src="https://img.shields.io/github/license/Shkeffy/ngon?style=for-the-badge&logo=appveyor">
 <img src="https://img.shields.io/github/downloads/Shkeffy/ngon/total?style=for-the-badge&logo=appveyor">
 </p>
 
 ## Read the Wiki for more information: https://github.com/Shkeffy/ngon/wiki
-Please star and watch this repo!
-<br>Fork and commit if you'd like to help out, I need all the help I can get!
-<br>I would love for people to acknowledge this repo, as it's my first!
+<br>Fork and commit if you'd like to help out, Shkeffy needs all the help he can get!
+<br>He would love for people to acknowledge this repo, as it's his first!
 <br>Thank you!
 
 # Links:
 [OWW] = Offline Working Website
 - [NORMAL WEBSITE](https://shkeffy.github.io/ngon/)
+- [CycloKid's Fork Site](https://cyclokid.github.io/ngon/)
 - [OWW](https://www.ngon.cf)
 - [OWW](https://ngon.shkeffy.repl.co)
 
-### I *am* looking for help with N-GON. Contact me for more details
-- Discord - Shkeffy#9999 (Not online often).
-- Email: xshknevsx@gmail.com (Checked every three hours).
-- Open an issue (Ping me).
-- Start a discussion (Ping me).<br>
-#### You need:
-- Experience.
-- Proof of work (One or more of the below).
-  - A project you've made.
-  - A reference.
-  - Some code you can write.
+### Honorable mentions
+[Landgreen](https://github.com/landgreen/n-gon) for making the OG n-gon, who came up with this great game idea and made it in the first place!
+[Shkeffy](https://github.com/Shkeffy/ngon) for creating the great fork and expanded it further to add more content to n-gon!
+
 #### Thank you!
