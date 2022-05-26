@@ -36,6 +36,7 @@ No  sound or sfx in this game 😞
 
 ### Honorable mentions
 [Landgreen](https://github.com/landgreen/n-gon) for making the OG n-gon, who came up with this great game idea and made it in the first place!
+
 [Shkeffy](https://github.com/Shkeffy/ngon) for creating the great fork and expanded it further to add more content to n-gon!
 
 #### Thank you!
