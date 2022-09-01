@@ -1,15 +1,43 @@
 ******************************************************** NEXT PATCH **************************************************
 
-ideal gas law - lose all your current foam ammo;  foam gun gets 1200% more ammo from ammo power ups
-pressure vessel - has 25% more charges produced as you hold
+new community map: dripp!
+  enable the 13 community maps in settings
 
-slashBoss is a bit slower and has a bit longer between slashes
-reactor SprayBoss: slower to fire, slower to move, smaller bullets, fewer in number
-  just a tiny nerf though
 
-bug fixes
 
-******************************************************** TODO ********************************************************
+*********************************************************** TODO *****************************************************
+
+
+block manufacturing - molecular assembler tech
+Holding r-click will create a slowly increasing in size block, which will be thrown on release
+
+double research
+
+map ban option in settings
+  dropdown list with checkboxes by each map
+
+bullets that can target the player
+  occurs if no mobs targets around
+  worms? drones? missiles? spores?
+    all of the above?
+
+Currently, the mob just deals higher damage on impact, which is annoying although not hard to compete with nor unique
+By "redesign" I mean replacing instances of the regular mob, since the same code is used for the tiny red projectiles (I think) just add a new mob and remove the old one from the rotation
+The new mob should be as such, a "real" exploding mob: 
+Deals regular damage on impact, but breaks apart on touch into several red dots (like the ones thrown out by the going through walls boss) and a chance for also throwing a bomb or two (increases with difficulty)
+If the mob is close to the player or heading into the player fast it will shatter as well (and the projectiles will inherit its speed)
+By a formula such as
+ShouldShatter(distToPlayer, speed) = distToPlayer * speed > threshold
+Optionally (and a part I can do as I'm good at it and it doesn't revolve around a lot of functional code which you don't like other people doing):
+Color changing based on the mob explosion status
+Regular state: red
+About to explode: animation to dark red
+Exploding: several shockwaves from the explosion points and tiny trails given to the shrapnel for a second or two until they deaccelerate
+
+pause time like invariant for other things...
+  throwing blocks
+  charging railgun
+  charging anything?
 
 tech expansion:  should also make other fields do things
   how to make the description work
@@ -23,9 +51,6 @@ tech expansion:  should also make other fields do things
     needs more benefit?
   reduces the cloaking vision effect?
     needs more benefit?
-
-nonrefundable tech don't display, this is confusing
-    maybe they can show up but greyed out or something
 
 guntech fire a bullet that fires nail fragments after 1s in the same direction as the original bullet
   like overwatch roadhog
@@ -57,13 +82,14 @@ plasma ball
     plasma orb increases in size and power as it eats enemies
       while attached?
 
-make level.do() graphic that only shows direction player is facing
-  pattern it after cloaking field
-    will it work with cloaking field at the same time
+flashlight effect
+  make level.do() graphic that only shows direction player is facing
+    pattern it after cloaking field, or timeSkipBoss
+      will it work with cloaking field at the same time
 
 double jump?
 
-tech coyote time
+tech: coyote time
   you can still jump for 2 seconds after falling off a ledge
   make it a JUNK tech? so you can keep the name
   some other benefit
@@ -90,32 +116,7 @@ tech: harpoons stick into enemies
   attaches mob to wall if possible
   firing while harpoon is stuck into an enemy rips it out of them, inflicting damage and stun and pulling them towards you
 
-bug: often game puts player position at NaN
-  try:
-    cloaking/harpoon grapple on normal, continue past beating the final boss
-  clues:
-    maybe with vanish or other special blocks and grapple hook
-    very high level for tech, duplication
-      happened once with only 13 tech
-        ?&seed=7269&gun0=drones&gun1=matter%20wave&gun2=shotgun&tech0=arsenal&tech1=dead%20reckoning&tech2=regression&tech3=unified%20field%20theory&tech4=rivet%20gun&tech5=phonon&tech6=affine%20connection&field=wormhole&difficulty=2
-    maybe not about JUNK though
-    maybe on tons of bullets
-    maybe grappling hook, Bulk modulus
-  solution: just kill the player if they go NaN
-  vanish elements shouldn't collide with mobs
-    maybe they don't return if mobs are in the way?
-    maybe they kill mobs in the way
-    maybe they should go non-collide with mobs
 
-bug: harpoon attack gave a mob really high levels of health
-  recent events:
-    had 3 harpoons at a time
-    tech: immune with grappling hook, Bulk modulus
-    cancel true colors with pure science
-    attack with harpoon at slasher mobs
-      they didn't die, but they should in one hit  instead they got a huge health bar,  then I just died for no reason after touching one
-
-bug: maybe I can put in an event listener to reset inputs to false when you tab out to prevent key sticking
 
 enemies stuck with foam receive upward force over time
   only form aerogel tech?
@@ -145,77 +146,6 @@ a mine tech that makes mines you can stand on
 setting to remove UI, except health bar
   except active gun? to see ammo
   checkbox in pause and in settings
-
-pause time like invariant for other things...
-  throwing blocks
-  charging railgun
-  charging anything?
-
-bug - url sharing still broken sometimes
-
-maybe?  timing QTE for charging effects,  if you fire right before the charge gets full it's better
-
-+damage for each different bot type you have
-  disables bot upgrades?
-
-tech: doing damage to mobs refunds up to 50% of damage taken in last 10 seconds
-  use history[] to manage this?
-
-make a seed/hash system that controls only the tech/guns/fields shown
-  URL sharing could include a seed
-  seed controls:
-    seeded random at start - random level boss, mob types list, level order, horizontal flip
-    seeded random during run - tech, gun, field choices
-    not seeded random - mob spawns, mob size, minor level differences, custom level boss choices, ammo rewards, tech effect randomness
-      better to only seed things at the start of the run so it doesn't mess with power up choices
-  make option for a daily seed: seed = day+year
-    give 1 extra tech for doing the daily seeded run
-    make the option for the daily run, a secret exit in the intro level?
-    
-tech upgrade to anthropic principle to make it trigger at 50% life and 0% once per map
-
-tech: spontaneous collapse - very low chance of something to occur
-  JUNK tech
-  https://bindingofisaacrebirth.fandom.com/wiki/Damocles
-
-bug? cloaking field doesn't show energy over max
-
-run more profiles of n-gon to fix performance issues
-
-reactor
-  life-like cellular automata boss
-    https://scratch.mit.edu/projects/77724260/
-    night/day?
-      boss on far right produces more "on" cells
-  tailBoss
-    story the last 5 seconds of position, draw damage circles over those positions, like a tail
-  limit mantis boss to only reactor?
-  laserBoss?
-  swoopBoss: hides in top center
-    take a lap around the map that you have to dodge
-    spawn mobs
-    fire sniper bullets?
-    remove center map element?
-  add some blocks to the reactor level
-  add ammo?
-  boss speeds up as time goes on?
-  slow bullet speed?
-  foam hits all the bullets and makes this fight easy
-  give map some background graphics
-  it's a little short
-    add alternate boss
-    add a boss that spawns after the first one dies
-  balance
-    boss damage reduction
-    bullet size
-    bullet spawn number
-    bounce speed
-  add horizontal flip mode
-
-bug:  possibly clearing away all bullets causes a problem
-  bullet.js 255  (.do() is missing)
-  I died and quantum immortality triggered (I had needles and ice-IX)
-  game crashed but recovered
 
 go non-collide with mobs when immune to damage?
 
@@ -334,9 +264,6 @@ electric motors: increases movement speed and jump height, but jumping and movin
 mob that fires bullets in 4,5,6,7 different directions at once,  no aiming
   grow a bit before it fires to indicate state
 
-bug once:  switching from shotgun to harpoon somehow set b.activeGun to not defined
-  https://discord.com/channels/645222059647172618/646505973610971165/919116288008290324
-
 quasarBoss: inverted pulsar boss that hits everything except where its aiming
 
 intro map: diegeticly draw a mouse with field highlighted
@@ -357,8 +284,6 @@ mob/boss that fires a laser at player, but give player time to avoid
   laser isn't always on
   they target where player was 1 second ago
   they turn to face player?
-
-bug - death while paused crashes game?
 
 tech rocket jump - jumping produces an explosion at your feet that lets you jump extra high, but does some damage
   require electric reactive armor?
@@ -556,6 +481,28 @@ n-gon outreach ideas
 
 ******************************************************** BUGS ********************************************************
 
+timeskip flickers with tech: clock gating, and game pause after large hit
+  probably not related to timeskip, related to graphics effect
+  not a big problem, actually it's kinda neat effect
+    only fix if there is a clear solution
+
+bug: maybe I can put in an event listener to reset inputs to false when you tab out to prevent key sticking
+
+bug - url sharing still broken sometimes
+    
+tech upgrade to anthropic principle to make it trigger at 50% life and 0% once per map
+
+bug? cloaking field doesn't show energy over max
+
+run more profiles of n-gon to fix performance issues
+
+bug - death while paused crashes game?
+
+bug:  possibly clearing away all bullets causes a problem
+  bullet.js 255  (.do() is missing)
+  I died and quantum immortality triggered (I had needles and ice-IX)
+  game crashed but recovered
+
 vanish element bug, crashes on touching element,  happens for 1 person maybe with junk tech?
 
 safari issues
@@ -741,23 +688,13 @@ possible names for tech
   nuclear pasta - hard matter in neutron star
   nonlocal
   fine-tuned universe
-  eternalism https://en.wikipedia.org/wiki/Eternalism_(philosophy_of_time)
-  axial motor
   hall effect thrusters
   spaghettification
   particle accelerator
   superluminal signalling
   NP-complete
   lenticular lens:  is an array of lenses, designed so that when viewed from slightly different angles, different parts of the image underneath are shown.
- 
-a tutorial / lore intro
-  needs to be optional so it doesn't slow experienced players
-  put something on the intro map
-    maybe a button triggers something
-
-rename ?
-  health -> integrity, unity
-  heal -> also integrity, unity
+  p-zombie
 
 
 plot script:
